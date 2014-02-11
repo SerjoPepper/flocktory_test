@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="flocktoryApp">
+    <head>
+        <meta charset="utf-8"/>
+        <script src="js/config.js"></script>
+        <script src="js/lib/require.js" data-main="app/app"></script>
+        <title>Flocktory test task</title>
+        <link rel="stylesheet" href="css/index.css"/>
+    </head>
+    <body ng-controller="CampaignCtrl" ng-cloak>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="campaigns">
+                        <input type="text" class="form-control" placeholder="Название кампании" ng-model="query"/>
+                        <ul>
+                            <li ng-repeat="campaign in campaigns | filter:filter()">
+                                <button type="button" class="btn btn-default btn-xs" ng-click="selectCampaign(campaign)">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                                <span class="title" ng-bind-template="{{campaign.title}}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <table class="selected-campaigns table" ng-class="[selectedCampaigns.length ? 'show' : 'hide']">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>title</th>
+                                <th>offers</th>
+                                <th>shares</th>
+                                <th>landings</th>
+                                <th>leads</th>
+                                <th>purchases</th>
+                                <th>friends</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="campaign in selectedCampaigns" ng-class="['row-' + $index]">
+                                <td ng-bind-template="{{campaign.id}}"></td>
+                                <td ng-bind-template="{{campaign.title}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.offers}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.shares}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.landings}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.leads}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.purchases}}"></td>
+                                <td ng-bind-template="{{campaign.metrics.friends}}"></td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-xs" ng-click="deselectCampaign(campaign)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div class="chart">
+                        <canvas id="chart-canvas" width="300" height="300"></canvas>
+                        <div class="metrics">
+                            <div class="offers"></div>
+                            <div class="shares"></div>
+                            <div class="landings"></div>
+                            <div class="leads"></div>
+                            <div class="purchases"></div>
+                            <div class="friends"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

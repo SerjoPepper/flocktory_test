@@ -1,0 +1,48 @@
+@import "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css";
+
+.campaigns {
+    margin-top: 56px;
+}
+.campaigns ul {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    height: 300px;
+    overflow-y: scroll;
+}
+.campaigns ul li {
+    margin: 5px 0px;
+}
+.campaigns ul li .title {
+    display: inline;
+}
+
+.selected-campaigns {
+    margin-top: 20px;
+}
+.selected-campaigns.hide {
+    display: none;
+}
+
+.selected-campaigns .row-0 {background-color: #ffcccc;}
+.selected-campaigns .row-1 {background-color: #c1a3cc;}
+.selected-campaigns .row-2 {background-color: #ccccff;}
+.selected-campaigns .row-3 {background-color: #b5e2df;}
+.selected-campaigns .row-4 {background-color: #ffffcc;}
+.selected-campaigns .row-5 {background-color: #f9e0c7;}
+.selected-campaigns .row-6 {background-color: #e5c1f2;}
+.selected-campaigns .row-7 {background-color: #ccffcc;}
+
+.chart {
+    position: relative;
+    margin-top: 56px;
+}
+.metrics div {
+    position: absolute;
+}
+.metrics .offers {left: 310px; top: -5px;}
+.metrics .shares {left: 310px; top: 50px;}
+.metrics .landings {left: 310px; top: 110px;}
+.metrics .leads {left: 310px; top: 170px;}
+.metrics .purchases {left: 310px; top: 230px;}
+.metrics .friends {left: 310px; top: 285px;}
